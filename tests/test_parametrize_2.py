@@ -1,10 +1,6 @@
 import pytest
 from contextlib import contextmanager
 from modules.square import square
-# def square(x):
-#     if not isinstance(x, (int, float)):
-#         raise TypeError("x must be numeric")
-#     return x * x
 
 @contextmanager
 def does_not_raise():
