@@ -61,15 +61,25 @@ Below we run the test case in tests/test_parametrize_1.py
 ```bash
 rm -rf /tmp/pytest-toi
 coverage run --source=./modules -m pytest tests/test_parametrize_1.py
-coverage html -d /tmp/pytest-toi
+coverage report --show-missing | grep '^Name\|square'
+# output removed....
+Name                  Stmts   Miss  Cover   Missing
+modules/square.py         5      2    60%   3
 ```
 
-The coverage report shows that ``raise`` in modules/square.py is not covered, as expected.
+The coverage report shows that ``raise`` in modules/square.py (line 3) is not covered, as expected.
 
 If we rerun coverage for tests/test_parametrize_2.py, we see the ``raise`` is covered.
+
+The text report below is actually not correct (Miss should be 0 and Cover 100%).
+
+Looking at the html report shows that all lines ARE covered.  Looks like a bug with coverage tool ``:-(``
 
 ```bash
 rm -rf /tmp/pytest-toi
 coverage run --source=./modules -m pytest tests/test_parametrize_2.py
-coverage html -d /tmp/pytest-toi
+coverage report --show-missing | grep '^Name\|square'
+# output removed....
+Name                  Stmts   Miss  Cover   Missing
+modules/square.py         5      1    80%
 ```
