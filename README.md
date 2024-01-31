@@ -49,3 +49,27 @@ modules/square.py
 
 modules/foo.py
 modules/bar.py
+
+## coverage report tip
+
+Sometimes it's useful to see what the coverage is for a single test case, or set of test cases.
+
+This can answer the question "Is this testcase really doing anything?"
+
+Below we run the test case in tests/test_parametrize_1.py
+
+```bash
+rm -rf /tmp/pytest-toi
+coverage run --source=./modules -m pytest tests/test_parametrize_1.py
+coverage html -d /tmp/pytest-toi
+```
+
+The coverage report shows that ``raise`` in modules/square.py is not covered, as expected.
+
+If we rerun coverage for tests/test_parametrize_2.py, we see the ``raise`` is covered.
+
+```bash
+rm -rf /tmp/pytest-toi
+coverage run --source=./modules -m pytest tests/test_parametrize_2.py
+coverage html -d /tmp/pytest-toi
+```
