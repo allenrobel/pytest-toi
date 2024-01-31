@@ -17,12 +17,13 @@
 # On MacOS:
 #  file:///private/tmp/coverage/index.html
 
-export ANSIBLE_CODE=$HOME/repos/collections/ansible_collections/cisco/dcnm
-export PYTEST_TESTCASES=$ANSIBLE_CODE/tests/unit/modules/dcnm/dcnm_image_upgrade
-export COVERAGE_DIR=/tmp/coverage
+export ANSIBLE_CODE=$HOME/repos/toi/pytest-toi
+export CODE=$ANSIBLE_CODE/modules
+export TESTS=$ANSIBLE_CODE/tests
+export COVERAGE_DIR=/tmp/pytest-toi
 
 rm -rf $COVERAGE_DIR
 coverage run \
-  --source=$ANSIBLE_CODE \
-  -m pytest $PYTEST_TESTCASES
+  --source=$CODE \
+  -m pytest $TESTS
 coverage html -d $COVERAGE_DIR

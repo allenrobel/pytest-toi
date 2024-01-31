@@ -1,9 +1,5 @@
 import pytest
-
-def square(x):
-    if not isinstance(x, (int, float)):
-        raise TypeError("x must be numeric")
-    return x * x
+from modules.square import square
 
 @pytest.mark.parametrize(
     "input, output",
