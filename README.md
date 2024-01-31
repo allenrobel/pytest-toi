@@ -31,3 +31,4 @@ pytest
 ```bash
 pytest -k test_monkeypatch_baz
 ```
+5. Have a look in the coverage.bash script for details on how to use it to generate a coverage report.
